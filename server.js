@@ -85,7 +85,7 @@ app.post('/api/books', function (req, res) {
 
   db.Author.findOne({name: req.body.author}, function(err, matchAuthor){
     console.log(err)
-    createBook.author = matchAuthor || req.body.author;
+    createBook.author = matchAuthor;
     createBook.save(function(err, newBook){
       res.json(newBook)
     })
